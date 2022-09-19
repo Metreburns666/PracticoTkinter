@@ -6,42 +6,92 @@ main.title("Calculadora")#nombre del titulo
 main.geometry("300x200")#"primero lo ancho y dsp lo alto"
 main.config(bg="DarkGray")#color del fondo
 
+numeroEntry=StringVar()
+numeroEntry.set("0")
+numeroEntry2=StringVar()
+numeroEntry2.set("0")
+numeroEntry3=StringVar()
+numeroEntry3.set("0")
+
+def Validar():
+    contVal = 2
+    a=0
+    try:
+        float(numeroEntry.get())
+        contVal -= 1
+    except:
+        a=1
+    try:
+        float(numeroEntry2.get())
+        contVal -= 1
+    except:
+        numeroEntry2.set("0")
+        a=2
+    if contVal!=0:
+        if contVal==2:
+            numeroEntry.set("0")
+            numeroEntry2.set("0")
+            numeroEntry3.set("0")
+            messagebox.showinfo(message="Error en Primer y Segundo Numero- Ingrese solo numeros por favor")
+        if contVal==1:
+            if a==1:
+                numeroEntry.set("0")
+                numeroEntry3.set("0")
+                messagebox.showinfo(message="Error Primer Numero- Ingrese solo numeros por favor")
+            if a==2:
+                numeroEntry2.set("0")
+                numeroEntry3.set("0")
+                messagebox.showinfo(message="Error Segundo Numero- Ingrese solo numeros por favor") 
+    return contVal == 0
+
+
 def Suma():
-    num1=int(numeroEntry.get())
-    num2=int(numeroEntry2.get())
-    numeroEntry3.set(num1+num2)
+    if Validar()==True:
+        num1=float(numeroEntry.get())
+        num2=float(numeroEntry2.get())
+        numeroEntry3.set(str(num1+num2))
+    else:
+        pass
 
 def Resta():
-    num1=int(numeroEntry.get())
-    num2=int(numeroEntry2.get())
-    numeroEntry3.set(num1-num2)
+    if Validar()==True:
+        num1=float(numeroEntry.get())
+        num2=float(numeroEntry2.get())
+        numeroEntry3.set(str(num1-num2))
+    else:
+        pass
 
 def Multiplicacion():
-    num1=int(numeroEntry.get())
-    num2=int(numeroEntry2.get())
-    numeroEntry3.set(num1*num2)
-def Division():
-    num1=int(numeroEntry.get())
-    num2=int(numeroEntry2.get())
-    if num2==0:
-        messagebox.showinfo(message="Error - No se puede dividir por 0")
+    if Validar()==True:
+        num1=float(numeroEntry.get())
+        num2=float(numeroEntry2.get())
+        numeroEntry3.set(str(num1*num2))
     else:
-        numeroEntry3.set(num1/num2)
+        pass
+
+def Division():
+    if Validar()==True:
+        num1=float(numeroEntry.get())
+        num2=float(numeroEntry2.get())
+        if num2==0:
+            messagebox.showinfo(message="Error - No se puede dividir por 0")
+        else:
+            numeroEntry3.set(str(num1/num2))
+    else:
+        pass
+
 def Modulo():
-    num1=int(numeroEntry.get())
-    num2=int(numeroEntry2.get())
-    numeroEntry3.set(num1%num2)
+    if Validar()==True:
+        num1=float(numeroEntry.get())
+        num2=float(numeroEntry2.get())
+        numeroEntry3.set(str(num1%num2))
+    else:
+        pass
 def Reset():
     numeroEntry.set(0)
     numeroEntry2.set(0)
     numeroEntry3.set(0)
 
-numeroEntry=IntVar()
-numeroEntry.set(0)
-numeroEntry2=IntVar()
-numeroEntry2.set(0)
-numeroEntry3=IntVar()
-numeroEntry3.set(0)
 
 varFrame=Frame(main)
 varFrame.pack()

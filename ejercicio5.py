@@ -1,8 +1,8 @@
 from tkinter import *
 
 main=Tk()
-main.title("Contador Creciente")#nombre del titulo
-main.geometry("300x300")#"primero lo ancho y dsp lo alto"
+main.title("Calculadora")#nombre del titulo
+main.geometry("300x200")#"primero lo ancho y dsp lo alto"
 main.config(bg="dark orange")#color del fondo
 
 def contadorCrecre():

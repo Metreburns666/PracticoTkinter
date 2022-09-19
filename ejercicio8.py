@@ -3,8 +3,8 @@ from tkinter import messagebox
 
 main=Tk()
 main.title("Calculadora 2")#nombre del titulo
-main.geometry("400x300")#"primero lo ancho y dsp lo alto"
-main.config(bg="DarkGray")#color del fondo
+main.geometry("400x250")#"primero lo ancho y dsp lo alto"
+#main.config(bg="DarkGray")#color del fondo
 
 def Validar():
     contVal = 2
@@ -82,7 +82,7 @@ def Calcular():
     if opBotton==4:
         Division()
 
-varFrame=Frame(main)
+varFrame=Frame(main,padx=20, pady=20)
 varFrame.pack()
 
 numeroEntry=StringVar()
@@ -101,10 +101,10 @@ varLabel=Label(varFrame, text="Operaciones")
 varLabel.grid(row=0,column=3, padx=5, pady=5)
 
 varLabel2=Label(varFrame, text="Valor 1")
-varLabel2.grid(row=1,column=0)
+varLabel2.grid(row=1,column=0,sticky=W)
 
 varLabel3=Label(varFrame, text="Valor 2")
-varLabel3.grid(row=2,column=0)
+varLabel3.grid(row=2,column=0,sticky=W)
 
 varLabel4=Label(varFrame, text="Resultado")
 varLabel4.grid(row=3,column=0)

@@ -84,7 +84,7 @@ def Modulo():
     if Validar()==True:
         num1=float(numeroEntry.get())
         num2=float(numeroEntry2.get())
-        numeroEntry3.set(str(num1%num2))
+        numeroEntry3.set(str((num1*num2)/100))
     else:
         pass
 def Reset():

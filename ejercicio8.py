@@ -2,8 +2,8 @@ from tkinter import *
 from tkinter import messagebox
 
 main=Tk()
-main.title("Calculadora")#nombre del titulo
-main.geometry("300x200")#"primero lo ancho y dsp lo alto"
+main.title("Calculadora 2")#nombre del titulo
+main.geometry("400x300")#"primero lo ancho y dsp lo alto"
 main.config(bg="DarkGray")#color del fondo
 
 def Suma():
@@ -76,18 +76,18 @@ varEntry3=Entry(varFrame,state="readonly", textvariable= numeroEntry3)
 varEntry3.grid(row=3,column=1, padx=5, pady=5)
 
 radButtonSum = Radiobutton(varFrame,text= "Sumar", variable=opRadioButton, value=1)
-radButtonSum.grid(row=1, column=3, padx=5, pady=5)
+radButtonSum.grid(row=1, column=3, padx=5, pady=5,sticky=W)
 
 radButtonRes = Radiobutton(varFrame,text= "Restar", variable=opRadioButton, value=2)
-radButtonRes.grid(row=2, column=3, padx=5, pady=5)
+radButtonRes.grid(row=2, column=3, padx=5, pady=5,sticky=W)
 
 radButtonMult = Radiobutton(varFrame,text= "Multiplicar", variable=opRadioButton, value=3)
-radButtonMult.grid(row=3, column=3, padx=5, pady=5)
+radButtonMult.grid(row=3, column=3, padx=5, pady=5,sticky=W)
 
 radButtonDiv = Radiobutton(varFrame,text= "Dividir", variable=opRadioButton, value=4)
-radButtonDiv.grid(row=4, column=3)
+radButtonDiv.grid(row=4, column=3,padx=5, pady=5,sticky=W)
 
 varButton=Button(varFrame,text="Calcular", command=Calcular)
-varButton.grid(row=4,column=1, padx=5, pady=5)
+varButton.grid(row=5,column=1, padx=5, pady=5, sticky=EW)
 
 main.mainloop()

@@ -2,32 +2,75 @@ from tkinter import *
 from tkinter import messagebox
 
 main=Tk()
-main.title("Calculadora")#nombre del titulo
-main.geometry("300x200")#"primero lo ancho y dsp lo alto"
+main.title("Calculadora 2")#nombre del titulo
+main.geometry("400x300")#"primero lo ancho y dsp lo alto"
 main.config(bg="DarkGray")#color del fondo
 
+def Validar():
+    contVal = 2
+    a=0
+    try:
+        float(numeroEntry.get())
+        contVal -= 1
+    except:
+        a=1
+    try:
+        float(numeroEntry2.get())
+        contVal -= 1
+    except:
+        numeroEntry2.set("0")
+        a=2
+    if contVal!=0:
+        if contVal==2:
+            numeroEntry.set("0")
+            numeroEntry2.set("0")
+            numeroEntry3.set("0")
+            messagebox.showinfo(message="Error en Valor 1 y Valor 2- Ingrese solo numeros por favor")
+        if contVal==1:
+            if a==1:
+                numeroEntry.set("0")
+                numeroEntry3.set("0")
+                messagebox.showinfo(message="Error en Valor 1- Ingrese solo numeros por favor")
+            if a==2:
+                numeroEntry2.set("0")
+                numeroEntry3.set("0")
+                messagebox.showinfo(message="Error en Valor 2- Ingrese solo numeros por favor") 
+    return contVal == 0
+
 def Suma():
-    num1=int(numeroEntry.get())
-    num2=int(numeroEntry2.get())
-    numeroEntry3.set(num1+num2)
+    if Validar()==True:
+        num1=float(numeroEntry.get())
+        num2=float(numeroEntry2.get())
+        numeroEntry3.set(str(num1+num2))
+    else:
+        pass
 
 def Resta():
-    num1=int(numeroEntry.get())
-    num2=int(numeroEntry2.get())
-    numeroEntry3.set(num1-num2)
+    if Validar()==True:
+        num1=float(numeroEntry.get())
+        num2=float(numeroEntry2.get())
+        numeroEntry3.set(str(num1-num2))
+    else:
+        pass
 
 def Multiplicacion():
-    num1=int(numeroEntry.get())
-    num2=int(numeroEntry2.get())
-    numeroEntry3.set(num1*num2)
-def Division():
-    num1=int(numeroEntry.get())
-    num2=int(numeroEntry2.get())
-    if num2==0:
-        messagebox.showinfo(message="Error - No se puede dividir por 0")
+    if Validar()==True:
+        num1=float(numeroEntry.get())
+        num2=float(numeroEntry2.get())
+        numeroEntry3.set(str(num1*num2))
     else:
-        numeroEntry3.set(num1/num2)
+        pass
 
+def Division():
+    if Validar()==True:
+        num1=float(numeroEntry.get())
+        num2=float(numeroEntry2.get())
+        if num2==0:
+            messagebox.showinfo(message="Error - No se puede dividir por 0")
+        else:
+            numeroEntry3.set(str(num1/num2))
+    else:
+        pass
 def Calcular():
     opBotton=int(opRadioButton.get())
     if opBotton==1:
@@ -42,12 +85,12 @@ def Calcular():
 varFrame=Frame(main)
 varFrame.pack()
 
-numeroEntry=IntVar()
-numeroEntry.set(0)
-numeroEntry2=IntVar()
-numeroEntry2.set(0)
-numeroEntry3=IntVar()
-numeroEntry3.set(0)
+numeroEntry=StringVar()
+numeroEntry.set("0")
+numeroEntry2=StringVar()
+numeroEntry2.set("0")
+numeroEntry3=StringVar()
+numeroEntry3.set("0")
 
 opRadioButton= IntVar()
 txtenResultado=StringVar()
@@ -76,18 +119,18 @@ varEntry3=Entry(varFrame,state="readonly", textvariable= numeroEntry3)
 varEntry3.grid(row=3,column=1, padx=5, pady=5)
 
 radButtonSum = Radiobutton(varFrame,text= "Sumar", variable=opRadioButton, value=1)
-radButtonSum.grid(row=1, column=3, padx=5, pady=5)
+radButtonSum.grid(row=1, column=3, padx=5, pady=5,sticky=W)
 
 radButtonRes = Radiobutton(varFrame,text= "Restar", variable=opRadioButton, value=2)
-radButtonRes.grid(row=2, column=3, padx=5, pady=5)
+radButtonRes.grid(row=2, column=3, padx=5, pady=5,sticky=W)
 
 radButtonMult = Radiobutton(varFrame,text= "Multiplicar", variable=opRadioButton, value=3)
-radButtonMult.grid(row=3, column=3, padx=5, pady=5)
+radButtonMult.grid(row=3, column=3, padx=5, pady=5,sticky=W)
 
 radButtonDiv = Radiobutton(varFrame,text= "Dividir", variable=opRadioButton, value=4)
-radButtonDiv.grid(row=4, column=3)
+radButtonDiv.grid(row=4, column=3,padx=5, pady=5,sticky=W)
 
 varButton=Button(varFrame,text="Calcular", command=Calcular)
-varButton.grid(row=4,column=1, padx=5, pady=5)
+varButton.grid(row=5,column=1, padx=5, pady=5, sticky=EW)
 
 main.mainloop()

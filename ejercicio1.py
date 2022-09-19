@@ -27,5 +27,4 @@ varButton=Button(varFrame,text="+", command=contadorDecre)
 varButton.grid(row=0,column=2)
 
 
-
 main.mainloop()

@@ -93,9 +93,6 @@ numeroEntry3=StringVar()
 numeroEntry3.set("0")
 
 opRadioButton= IntVar()
-txtenResultado=StringVar()
-txtenResultado.set("")
-
 
 varLabel=Label(varFrame, text="Operaciones")
 varLabel.grid(row=0,column=3, padx=5, pady=5)

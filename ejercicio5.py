@@ -4,7 +4,7 @@ from tkinter import messagebox
 main=Tk()
 main.title("Calculadora")#nombre del titulo
 main.geometry("300x200")#"primero lo ancho y dsp lo alto"
-main.config(bg="DarkGray")#color del fondo
+#main.config(bg="DarkGray")#color del fondo
 
 numeroEntry=StringVar()
 numeroEntry.set("0")
@@ -97,13 +97,13 @@ varFrame=Frame(main)
 varFrame.pack()
 
 varLabel=Label(varFrame,text="Primer Numero")
-varLabel.grid(row=0,column=0, padx=5, pady=5)
+varLabel.grid(row=0,column=0, padx=5, pady=5, sticky=W)
 
 varLabel2=Label(varFrame,text="Segundo Numero")
-varLabel2.grid(row=1,column=0, padx=5, pady=5)
+varLabel2.grid(row=1,column=0, padx=5, pady=5, sticky=W)
 
 varLabel3=Label(varFrame,text="Resultado")
-varLabel3.grid(row=2,column=0, padx=5, pady=5)
+varLabel3.grid(row=2,column=0, padx=5, pady=5, sticky=W)
 
 varEntry=Entry(varFrame,textvariable= numeroEntry)
 varEntry.grid(row=0,column=1, padx=5, pady=5)

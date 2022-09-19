@@ -3,8 +3,8 @@ import random
 
 main=Tk()
 main.title("Generador de Numeros")#nombre del titulo
-main.geometry("300x300")#"primero lo ancho y dsp lo alto"
-main.config(bg="dark orange")#color del fondo
+main.geometry("300x150")#"primero lo ancho y dsp lo alto"
+#main.config(bg="dark orange")#color del fondo
 
 def Random():
     num1=int(numEntry1.get())
@@ -15,7 +15,7 @@ def Random():
         numEntry3.set(random.randint(num1,num2))
 
 
-varFrame=Frame(main)
+varFrame=Frame(main,padx=20, pady=20)
 varFrame.pack()
 
 numEntry1=IntVar()
@@ -28,22 +28,22 @@ numEntry3=IntVar()
 numEntry3.set(0)
 
 varLabel=Label(varFrame,text="Numero 1")
-varLabel.grid(row=0,column=0,padx=5, pady=5)
+varLabel.grid(row=0,column=0,padx=5, pady=5, sticky=W)
 
 varLabel2=Label(varFrame,text="Numero 2")
-varLabel2.grid(row=1,column=0,padx=5, pady=5)
+varLabel2.grid(row=1,column=0,padx=5, pady=5, sticky=W)
 
 varLabel3=Label(varFrame,text="Numero Generado")
-varLabel3.grid(row=2,column=0,padx=5, pady=5)
+varLabel3.grid(row=2,column=0,padx=5, pady=5, sticky=W)
 
 varEntry=Entry(varFrame,state="readonly",textvariable=numEntry3)
-varEntry.grid(row=2,column=1,padx=5, pady=5)
+varEntry.grid(row=2,column=1,padx=5, pady=5, sticky=W)
 
 varSpinbox=Spinbox(varFrame,state="readonly",from_=-999,to=999,textvariable=numEntry1)
-varSpinbox.grid(row=0,column=1,padx=5, pady=5)
+varSpinbox.grid(row=0,column=1,padx=5, pady=5, sticky=W)
 
 varSpinbox2=Spinbox(varFrame,state="readonly",from_=-999,to=999,textvariable=numEntry2)
-varSpinbox2.grid(row=1,column=1,padx=5, pady=5)
+varSpinbox2.grid(row=1,column=1,padx=5, pady=5, sticky=W)
 
 varButton=Button(varFrame,text="Generar", command=Random)
 varButton.grid(row=3,column=1,padx=5, pady=5)

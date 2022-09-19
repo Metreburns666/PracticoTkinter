@@ -36,21 +36,21 @@ varEntry3=Entry(varFrame,state="readonly", textvariable= numeroEntry)
 varEntry3.grid(row=2,column=1)
 
 varButton=Button(varFrame,text="+", command=contadorCrecre)
-varButton.grid(row=3,column=0)
+varButton.grid(row=3,column=0, sticky=EW)
 
 varButton2=Button(varFrame,text="-", command=contadorCrecre)
-varButton2.grid(row=3,column=1)
+varButton2.grid(row=3,column=1, sticky=EW)
 
 varButton3=Button(varFrame,text="*", command=contadorCrecre)
-varButton3.grid(row=4,column=0)
+varButton3.grid(row=4,column=0, sticky=EW)
 
 varButton4=Button(varFrame,text="/", command=contadorCrecre)
-varButton4.grid(row=4,column=1)
+varButton4.grid(row=4,column=1, sticky=EW)
 
 varButton5=Button(varFrame,text="%", command=contadorCrecre)
-varButton5.grid(row=5,column=0)
+varButton5.grid(row=5,column=0, sticky=EW)
 
 varButton6=Button(varFrame,text="CLEAR", command=contadorCrecre)
-varButton6.grid(row=5,column=1)
+varButton6.grid(row=5,column=1, sticky=EW)
 
 main.mainloop()

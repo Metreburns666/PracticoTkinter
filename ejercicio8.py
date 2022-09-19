@@ -6,9 +6,38 @@ main.title("Calculadora")#nombre del titulo
 main.geometry("300x200")#"primero lo ancho y dsp lo alto"
 main.config(bg="DarkGray")#color del fondo
 
-def Calcular():
-    pass
+def Suma():
+    num1=int(numeroEntry.get())
+    num2=int(numeroEntry2.get())
+    numeroEntry3.set(num1+num2)
 
+def Resta():
+    num1=int(numeroEntry.get())
+    num2=int(numeroEntry2.get())
+    numeroEntry3.set(num1-num2)
+
+def Multiplicacion():
+    num1=int(numeroEntry.get())
+    num2=int(numeroEntry2.get())
+    numeroEntry3.set(num1*num2)
+def Division():
+    num1=int(numeroEntry.get())
+    num2=int(numeroEntry2.get())
+    if num2==0:
+        messagebox.showinfo(message="Error - No se puede dividir por 0")
+    else:
+        numeroEntry3.set(num1/num2)
+
+def Calcular():
+    opBotton=int(opRadioButton.get())
+    if opBotton==1:
+        Suma()
+    if opBotton==2:
+        Resta()
+    if opBotton==3:
+        Multiplicacion()
+    if opBotton==4:
+        Division()
 
 varFrame=Frame(main)
 varFrame.pack()
@@ -19,6 +48,11 @@ numeroEntry2=IntVar()
 numeroEntry2.set(0)
 numeroEntry3=IntVar()
 numeroEntry3.set(0)
+
+opRadioButton= IntVar()
+txtenResultado=StringVar()
+txtenResultado.set("")
+
 
 varLabel=Label(varFrame, text="Operaciones")
 varLabel.grid(row=0,column=3, padx=5, pady=5)
@@ -41,8 +75,19 @@ varEntry2.grid(row=2,column=1, padx=5, pady=5)
 varEntry3=Entry(varFrame,state="readonly", textvariable= numeroEntry3)
 varEntry3.grid(row=3,column=1, padx=5, pady=5)
 
+radButtonSum = Radiobutton(varFrame,text= "Sumar", variable=opRadioButton, value=1)
+radButtonSum.grid(row=1, column=3, padx=5, pady=5)
+
+radButtonRes = Radiobutton(varFrame,text= "Restar", variable=opRadioButton, value=2)
+radButtonRes.grid(row=2, column=3, padx=5, pady=5)
+
+radButtonMult = Radiobutton(varFrame,text= "Multiplicar", variable=opRadioButton, value=3)
+radButtonMult.grid(row=3, column=3, padx=5, pady=5)
+
+radButtonDiv = Radiobutton(varFrame,text= "Dividir", variable=opRadioButton, value=4)
+radButtonDiv.grid(row=4, column=3)
+
 varButton=Button(varFrame,text="Calcular", command=Calcular)
 varButton.grid(row=4,column=1, padx=5, pady=5)
-
 
 main.mainloop()

@@ -10,6 +10,7 @@ main.config(bg="dark orange")#color del fondo
 def ListaPeliculas():
     if PeliculaEntry.get().strip()== "":
         messagebox.showinfo(message="Error - Ingrese una Pelicula por favor") 
+        PeliculaEntry.set("")
     else:
         varListBox.insert(END,PeliculaEntry.get())
         PeliculaEntry.set("")
